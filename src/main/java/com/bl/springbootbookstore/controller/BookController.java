@@ -1,21 +1,20 @@
 package com.bl.springbootbookstore.controller;
 
-import com.bl.springbootbookstore.model.Book;
 import com.bl.springbootbookstore.service.IBookService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 public class BookController {
-    @Autowired
-    IBookService iBookService;
-    @PostMapping("/book")
-    public String addBook(@RequestBody Book book){
-        iBookService.addBook(book);
-        return "Book Added into database";
-    }
 
+    @Autowired
+    IBookService bookService;
+
+    @PostMapping("/admin/bookInsertByCsv")
+    public ResponseEntity insertBooksDataFromCsv(@RequestParam String path) {
+        return new ResponseEntity(bookService.addBook(path), HttpStatus.CREATED);
+    }
 
 }
