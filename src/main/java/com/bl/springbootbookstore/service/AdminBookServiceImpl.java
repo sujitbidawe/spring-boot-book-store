@@ -12,7 +12,7 @@ import java.nio.file.Files;
 import java.nio.file.Paths;
 
 @Service
-public class BookServiceImpl implements IBookService {
+public class AdminBookServiceImpl implements IAdminBookService {
 
     @Autowired
     IBookRepository bookRepository;

@@ -1,5 +1,5 @@
 package com.bl.springbootbookstore.service;
 
-public interface IBookService  {
+public interface IAdminBookService {
     String addBook(String path);
 }
