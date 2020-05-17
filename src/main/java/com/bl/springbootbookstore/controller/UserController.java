@@ -5,7 +5,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -23,6 +22,11 @@ public class UserController {
     @GetMapping("/home-search")
     public ResponseEntity searchBooks(@RequestParam String searchText){
         return new ResponseEntity(userBookService.searchBooks(searchText), HttpStatus.OK);
+    }
+
+    @GetMapping("/home-sort")
+    public ResponseEntity sortBooks(@RequestParam String sortField){
+        return new ResponseEntity(userBookService.sortBooks(sortField), HttpStatus.OK);
     }
 
 }

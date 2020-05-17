@@ -7,4 +7,6 @@ import java.util.List;
 public interface IUserBookService {
     List<Book> getBookList();
     List<Book> searchBooks(String searchText);
+
+    List<Book> sortBooks(String sortField);
 }
